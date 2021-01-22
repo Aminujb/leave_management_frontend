@@ -23,8 +23,8 @@ const Home =() =>{
     const [token, setToken] = useState(null)
     const [showSignup, setshowSignup] = useState(false)
     const [showlogin, setshowLogin] = useState(true)
-    const baseUrl = 'http://127.0.0.1:8700/'
-    // const baseUrl = 'https://assesment-lms.herokuapp.com/'
+    // const baseUrl = 'http://127.0.0.1:8700/'
+    const baseUrl = 'https://assesment-lms.herokuapp.com/'
     const [form] = Form.useForm();
 
     const onReset = () => {
