@@ -23,8 +23,13 @@ const Home =() =>{
     const [token, setToken] = useState(null)
     const [showSignup, setshowSignup] = useState(false)
     const [showlogin, setshowLogin] = useState(true)
-    // const baseUrl = 'http://127.0.0.1:8700/'
-    const baseUrl = 'https://assesment-lms.herokuapp.com/'
+    const baseUrl = 'http://127.0.0.1:8700/'
+    // const baseUrl = 'https://assesment-lms.herokuapp.com/'
+    const [form] = Form.useForm();
+
+    const onReset = () => {
+        form.resetFields();
+    };
 
     const openNotification = (placement, message) => {
         notification.info({
@@ -57,6 +62,7 @@ const Home =() =>{
         .then(function (response) {
             console.log(JSON.stringify(response.data));
             openNotification('topLeft', "Leave request submitted successfully! You'll be notified when accessed")
+            onReset()
         })
         .catch(function (error) {
             // console.log(error);
@@ -238,6 +244,7 @@ const Home =() =>{
           initialValues={{
             remember: true,
           }}
+          form={form}
           onFinish={onLeaveFinish}
           onFinishFailed={onFinishFailed}
         >
